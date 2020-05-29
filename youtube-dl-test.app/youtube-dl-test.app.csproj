@@ -1,0 +1,35 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <RootNamespace>youtube_dl_test.app</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="youtube-dl.exe" />
+    <None Remove="YoutubeDL\ffmpeg.exe" />
+    <None Remove="YoutubeDL\ffplay.exe" />
+    <None Remove="YoutubeDL\ffprobe.exe" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="YoutubeDL\ffmpeg.exe">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="YoutubeDL\ffplay.exe">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="YoutubeDL\ffprobe.exe">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="YoutubeDL\youtube-dl.exe">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\youtube-dl-test.core\youtube-dl-test.core.csproj" />
+  </ItemGroup>
+
+</Project>
