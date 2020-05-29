@@ -10,16 +10,28 @@ namespace youtube_dl_test.core.Services
 
     public interface IYoutubeService
     {
-        void DownloadVideoAsync(YoutubeDownloadRequest request);
+        void DownloadVideoAsync(YoutubeVideoRequest request);
+        void DownloadPlaylistAsync(YoutubePlaylistRequest request);
     }
 
     public class YoutubeService : IYoutubeService
     {
 
-        public void DownloadVideoAsync(YoutubeDownloadRequest request)
+        public void DownloadVideoAsync(YoutubeVideoRequest request)
         {
             var args = YoutubeDLArgumentHelper.BuildArguments(request);
-            var processInfo = new ProcessStartInfo(@"YoutubeDL\youtube-dl.exe", args);
+            RunYoutubeDLProcess(args);
+        }
+
+        public void DownloadPlaylistAsync(YoutubePlaylistRequest request)
+        {
+            var args = YoutubeDLArgumentHelper.BuildArguments(request);
+            RunYoutubeDLProcess(args);
+        }
+
+        private void RunYoutubeDLProcess(string arguments)
+        {
+            var processInfo = new ProcessStartInfo(@"YoutubeDL\youtube-dl.exe", arguments);
             processInfo.CreateNoWindow = true;
             processInfo.UseShellExecute = false;
             processInfo.RedirectStandardError = true;
