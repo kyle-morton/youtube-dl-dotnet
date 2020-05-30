@@ -17,7 +17,7 @@ namespace youtube_dl_test.app
             service.DownloadPlaylistAsync(new YoutubePlaylistRequest
             {
                 PlaylistId =  "PLhGHzr0CJYGjDgieMIvTurewU1RXsVEJK",
-                OutputLocation = @"C:\Users\mkmor\OneDrive\Desktop\YoutubeArchive\CowChopHouseEra\"
+                OutputLocation = @"D:\YoutubeArchive\CowChopHouseEra\"
             });
         }
     }
